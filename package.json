@@ -4,7 +4,7 @@
   "description": "Opinionated package.json validator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": {
     "name": "Chris Montgomery",
@@ -17,5 +17,8 @@
     "object-assign": "^0.3.1",
     "package-json-validator": "^0.5.6",
     "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1"
   }
 }
