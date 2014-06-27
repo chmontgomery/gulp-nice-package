@@ -1,4 +1,4 @@
-# gulp-nice-package
+# [gulp](http://gulpjs.com/)-nice-package [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > Opinionated package.json validator. Uses [package.json-validator](https://github.com/gorillamania/package.json-validator) under the covers
 
@@ -77,3 +77,8 @@ gulp.task('validate-json', function () {
 I know, it seems a bit terse. The reasoning is, you may want to pipe other transforms onto the stream and, if an
 error is thrown, the pipe will cease and you have no way to continue. A valid use case may be to actually fix the
 the package.json file programmatically if it's invalid.
+
+[npm-url]: https://npmjs.org/package/gulp-nice-package
+[npm-image]: http://img.shields.io/npm/v/gulp-nice-package.svg
+[travis-image]: https://travis-ci.org/chmontgomery/gulp-nice-package.svg?branch=master
+[travis-url]: https://travis-ci.org/chmontgomery/gulp-nice-package
