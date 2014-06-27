@@ -2,6 +2,8 @@
 
 > Opinionated package.json validator. Uses [package.json-validator](https://github.com/gorillamania/package.json-validator) under the covers
 
+![](screenshot.png)
+
 ## Install
 
 ```shell
