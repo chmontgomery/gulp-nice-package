@@ -1,0 +1,21 @@
+{
+  "name": "gulp-nice-package",
+  "version": "0.0.0",
+  "description": "Opinionated package.json validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Chris Montgomery",
+    "email": "chr.montgomery@gmail.com",
+    "url": "http://www.chrismontgomery.info/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^2.2.19",
+    "object-assign": "^0.3.1",
+    "package-json-validator": "^0.5.6",
+    "through2": "^0.5.1"
+  }
+}
