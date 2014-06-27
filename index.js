@@ -38,17 +38,14 @@ function printErrors(results) {
       gutil.log(gutil.colors.green('package.json is valid'));
     } else {
       gutil.log(gutil.colors.red('package.json is INVALID'));
-      gutil.beep();
     }
 
-
   } else {
-    gutil.beep();
     throw new gutil.PluginError('gulp-nice-package', 'Failed to get results from validator');
   }
 }
 
-module.exports = function (options) {
+module.exports = function (spec, options) {
 
   function validate(file, enc, cb) {
 
@@ -62,7 +59,7 @@ module.exports = function (options) {
       return cb();
     }
 
-    var results = PJV.validate(file.contents.toString(), null /*defaults to npm*/, options);
+    var results = PJV.validate(file.contents.toString(), spec, options);
 
     printErrors.call(this, results);
 
