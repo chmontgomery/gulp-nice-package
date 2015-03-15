@@ -78,6 +78,10 @@ I know, it seems a bit terse. The reasoning is, you may want to pipe other trans
 error is thrown, the pipe will cease and you have no way to continue. A valid use case may be to actually fix the
 the package.json file programmatically if it's invalid, e.g. with [gulp-shrinkwrap](https://github.com/chmontgomery/gulp-shrinkwrap).
 
+## License
+
+[MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
+
 [npm-url]: https://npmjs.org/package/gulp-nice-package
 [npm-image]: http://img.shields.io/npm/v/gulp-nice-package.svg
 [travis-image]: https://travis-ci.org/chmontgomery/gulp-nice-package.svg?branch=master
