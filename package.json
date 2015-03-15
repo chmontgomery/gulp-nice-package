@@ -1,6 +1,6 @@
 {
   "name": "gulp-nice-package",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Opinionated package.json validator",
   "main": "index.js",
   "scripts": {
