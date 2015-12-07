@@ -1,6 +1,6 @@
 {
-  "name": "gulp-nice-package",
   "version": "0.0.0",
+  "author": "Chris Montgomery",
   "description": "",
   "keywords": ["gulp"],
   "main": "index.js",
@@ -9,6 +9,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "package-json-validator": "^0.5.6"
+    "package-json-validator": "^0.6.1"
   }
 }
