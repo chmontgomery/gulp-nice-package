@@ -8,7 +8,7 @@ it('should have invalid json file', function (cb) {
 
   stream.on('data', function (file) {
     assert.ok(!file.nicePackage.valid);
-    assert.deepEqual(file.nicePackage.errors, ["Missing required field: author"]);
+    assert.deepEqual(file.nicePackage.errors, ["Missing required field: name"]);
     cb();
   });
 
