@@ -3,6 +3,8 @@ var gutil = require('gulp-util'),
   PJV = require('package-json-validator').PJV,
   through = require('through2');
 
+var PLUGIN_NAME = require('./package').name;
+
 function printErrors(results) {
   if (results) {
 
@@ -41,7 +43,7 @@ function printErrors(results) {
     }
 
   } else {
-    throw new gutil.PluginError('gulp-nice-package', 'Failed to get results from validator');
+    throw new gutil.PluginError(PLUGIN_NAME, 'Failed to get results from validator');
   }
 }
 
@@ -55,7 +57,7 @@ var nicePackagePlugin = function (spec, options) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-nice-package', 'Streaming not supported'));
+      this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return cb();
     }
 
@@ -82,7 +84,7 @@ nicePackagePlugin.failOnError = function () {
 
     if (file.nicePackage.valid === false) {
       error = new gutil.PluginError(
-        'gulp-nice-package',
+        PLUGIN_NAME,
         'Failed with ' +
             size(file.nicePackage.errors) + ' error(s), ' +
             size(file.nicePackage.warnings) + ' warning(s), ' +
