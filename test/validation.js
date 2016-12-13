@@ -3,16 +3,18 @@ var gutil = require('gulp-util'),
   validator = require('./../index.js'),
   assert = require('assert');
 
-function createBufferFromJson(path) {
-  return new Buffer(JSON.stringify(require(path)));
+function createPackageFile(path) {
+  return new gutil.File({
+    contents: new Buffer(JSON.stringify(require(path)))
+  });
 }
 
-function createBufferForInvalidPackage() {
-  return createBufferFromJson('./fixtures/package-with-errors.json');
+function createInvalidPackageFile() {
+  return createPackageFile('./fixtures/package-with-errors.json');
 }
 
-function createBufferForValidPackage() {
-  return createBufferFromJson('./fixtures/package-valid.json');
+function createValidPackageFile() {
+  return createPackageFile('./fixtures/package-valid.json');
 }
 
 it('should have invalid json file', function (cb) {
@@ -24,9 +26,7 @@ it('should have invalid json file', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
-    contents: createBufferForInvalidPackage()
-  }));
+  stream.write(createInvalidPackageFile());
 });
 
 it('should have valid json file', function (cb) {
@@ -37,9 +37,7 @@ it('should have valid json file', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
-    contents: createBufferForValidPackage()
-  }));
+  stream.write(createValidPackageFile());
 });
 
 describe('failOnError', function () {
@@ -58,9 +56,7 @@ describe('failOnError', function () {
         assert.strictEqual(error.message, 'Failed with 1 error(s), 3 warning(s), 2 recommendation(s)');
       });
 
-    stream.write(new gutil.File({
-      contents: createBufferForInvalidPackage()
-    }));
+    stream.write(createInvalidPackageFile());
     stream.end();
   });
 
@@ -78,9 +74,7 @@ describe('failOnError', function () {
         errorReported = true;
       });
 
-    stream.write(new gutil.File({
-      contents: createBufferForValidPackage()
-    }));
+    stream.write(createValidPackageFile());
     stream.end();
   });
 });
