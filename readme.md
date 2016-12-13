@@ -78,6 +78,21 @@ I know, it seems a bit terse. The reasoning is, you may want to pipe other trans
 error is thrown, the pipe will cease and you have no way to continue. A valid use case may be to actually fix the
 the package.json file programmatically if it's invalid, e.g. with [gulp-shrinkwrap](https://github.com/chmontgomery/gulp-shrinkwrap).
 
+If you have no need to further process the stream after validation, you can pipe the stream to `validate.failOnError()`
+to fail the build in the event one or more errors are raised during validation.
+
+```js
+// gulpfile.js
+var gulp = require('gulp');
+var validate = require('gulp-nice-package');
+
+gulp.task('validate-json', function () {
+  return gulp.src('package.json')
+    .pipe(validate())
+    .pipe(validate.failOnError());
+});
+```
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
